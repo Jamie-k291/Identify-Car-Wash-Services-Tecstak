@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-12-05T21:32:39 IST" name="CarWash" finished-at="2022-12-05T21:33:28 IST" duration-ms="49232">
+    <groups>
+      <group name="Regression">
+        <method signature="TestSuite.regresionTest(java.util.Hashtable)[pri:0, instance:TestSuite.TestSuite@24313fcc]" name="regresionTest" class="TestSuite.TestSuite"/>
+      </group> <!-- Regression -->
+      <group name="Smoke">
+        <method signature="TestSuite.smokeTest(java.util.Hashtable)[pri:0, instance:TestSuite.TestSuite@24313fcc]" name="smokeTest" class="TestSuite.TestSuite"/>
+      </group> <!-- Smoke -->
+    </groups>
+    <test started-at="2022-12-05T21:32:39 IST" name="Test" finished-at="2022-12-05T21:33:28 IST" duration-ms="49232">
+      <class name="TestSuite.TestSuite">
+        <test-method signature="regresionTest(java.util.Hashtable)[pri:0, instance:TestSuite.TestSuite@24313fcc]" started-at="2022-12-05T21:32:40 IST" name="regresionTest" data-provider="getTestData" finished-at="2022-12-05T21:33:06 IST" duration-ms="26198" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2541, Last Name=Carter}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- regresionTest -->
+        <test-method signature="smokeTest(java.util.Hashtable)[pri:0, instance:TestSuite.TestSuite@24313fcc]" started-at="2022-12-05T21:33:06 IST" name="smokeTest" data-provider="getTestData" finished-at="2022-12-05T21:33:28 IST" duration-ms="21917" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2541, Last Name=Carter}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- smokeTest -->
+        <test-method is-config="true" signature="flushReports()[pri:0, instance:TestSuite.TestSuite@24313fcc]" started-at="2022-12-05T21:33:28 IST" name="flushReports" finished-at="2022-12-05T21:33:28 IST" duration-ms="360" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReports -->
+      </class> <!-- TestSuite.TestSuite -->
+    </test> <!-- Test -->
+  </suite> <!-- CarWash -->
+</testng-results>
