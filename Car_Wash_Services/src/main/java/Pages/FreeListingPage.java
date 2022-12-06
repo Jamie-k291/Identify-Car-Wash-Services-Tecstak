@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 import Base.PageBaseClass;
 
@@ -97,7 +98,7 @@ public class FreeListingPage extends PageBaseClass {
 	@FindBy(id = "fcoe")
 	WebElement companyError;
 
-	public void geterror() {
+	public void verifyBusinessInfoPage() {
 		System.out.println("===============================================");
 		try {
 			logger = report.createTest("Error message displayed");
@@ -105,23 +106,23 @@ public class FreeListingPage extends PageBaseClass {
 			verifyTitle("Free Listing Business Info");
 			if (phoneError.isDisplayed()) {
 				System.out.println(phoneError.getText());
-				reportFail("Landline Number is Invalid");
+				logger.log(Status.FAIL, "Landline Number is Invalid");
 			} else if (mobileError.isDisplayed()) {
 				System.out.println(mobileError.getText());
-				reportFail("Phone Number is Invalid");
+				logger.log(Status.FAIL, "Phone Number is Invalid");
 			} else if (fnameError.isDisplayed()) {
 				System.out.println(fnameError.getText());
-				reportFail("First name is Invalid");
+				logger.log(Status.FAIL, "First name is Invalid");
 			} else if (lnameError.isDisplayed()) {
 				System.out.println(lnameError.getText());
-				reportFail("Last name is Invalid");
+				logger.log(Status.FAIL, "Last name is Invalid");
 			} else if (companyError.isDisplayed()) {
 				System.out.println(companyError.getText());
-				reportFail("Comapny name is Invalid");
+				logger.log(Status.FAIL, "Comapny name is Invalid");
 			}
 
 		} catch (Exception e) {
-			reportFail("No error message displayed");
+			reportFail("No error message displayed " + e.getMessage());
 		}
 
 	}

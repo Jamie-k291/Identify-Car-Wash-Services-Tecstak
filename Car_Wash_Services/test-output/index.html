@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-CarWash" class="navigator-link">
-              <span class="suite-name border-passed">CarWash</span>
+              <span class="suite-name border-failed">CarWash</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-CarWash" class="navigator-link ">
-                    <span>C:\Users\nabee\eclipse-workspace\Car_Wash_Services\testng.xml</span>
+                    <span>C:\Users\nabee\git\repository\Car_Wash_Services\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-CarWash" class="hide-methods failed suite-CarWash"> (hide)</a> <!-- hide-methods failed suite-CarWash -->
+                      <a href="#" panel-name="suite-CarWash" class="show-methods failed suite-CarWash"> (show)</a> <!-- show-methods failed suite-CarWash -->
+                    </span>
+                    <div class="method-list-content failed suite-CarWash">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-CarWash" title="TestSuite.TestSuite" class="method navigator-link" hash-for-method="regresionTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)">regresionTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-CarWash -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -100,11 +114,6 @@
                       <a href="#" panel-name="suite-CarWash" class="show-methods passed suite-CarWash"> (show)</a> <!-- show-methods passed suite-CarWash -->
                     </span>
                     <div class="method-list-content passed suite-CarWash">
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-CarWash" title="TestSuite.TestSuite" class="method navigator-link" hash-for-method="regresionTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)">regresionTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-CarWash" title="TestSuite.TestSuite" class="method navigator-link" hash-for-method="smokeTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)">smokeTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)</a> <!-- method navigator-link -->
@@ -122,9 +131,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-CarWash" class="panel CarWash">
-          <div class="suite-CarWash-class-passed">
+          <div class="suite-CarWash-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">TestSuite.TestSuite</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -134,8 +143,29 @@
                   </a> <!-- regresionTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...) -->
                   <span class="method-name">regresionTest</span>
                   <span class="parameters">({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2541, Last Name=Carter})</span>
+                  <div class="stack-trace">java.lang.IndexOutOfBoundsException: Index 15 out of bounds for length 15
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:359)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+	at com.sun.proxy.$Proxy13.get(Unknown Source)
+	at Pages.CarWashPage.displayDetails(CarWashPage.java:195)
+	at TestSuite.TestSuite.regresionTest(TestSuite.java:70)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-CarWash-class-failed -->
+          <div class="suite-CarWash-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">TestSuite.TestSuite</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="smokeTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)">
@@ -149,7 +179,7 @@
         </div> <!-- panel CarWash -->
         <div panel-name="test-xml-CarWash" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\nabee\eclipse-workspace\Car_Wash_Services\testng.xml</span>
+            <span class="header-content">C:\Users\nabee\git\repository\Car_Wash_Services\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -216,18 +246,18 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'regresionTest')
+data.setCell(0, 1, 'smokeTest')
 data.setCell(0, 2, 'TestSuite.TestSuite')
-data.setCell(0, 3, 26198);
+data.setCell(0, 3, 28326);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'smokeTest')
+data.setCell(1, 1, 'regresionTest')
 data.setCell(1, 2, 'TestSuite.TestSuite')
-data.setCell(1, 3, 21917);
+data.setCell(1, 3, 16840);
 window.suiteTableData['CarWash']= { tableData: data, tableDiv: 'times-div-CarWash'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 48 seconds</span>
+              <span class="suite-total-time">Total running time: 45 seconds</span>
               <div id="times-div-CarWash">
               </div> <!-- times-div-CarWash -->
             </div> <!-- times-div -->
@@ -255,16 +285,18 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">TestSuite.TestSuite</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">regresionTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)</span>
+                <span class="method-name">smokeTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">smokeTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)</span>
-                <span class="method-start">26342 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">regresionTest({First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2...)</span>
+                <span class="method-start">28442 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">flushReports</span>
-                <span class="method-start">48259 ms</span>
+                <span class="method-start">45287 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

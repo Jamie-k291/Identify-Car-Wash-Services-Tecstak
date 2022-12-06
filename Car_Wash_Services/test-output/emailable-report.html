@@ -9,11 +9,22 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">CarWash</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">49,232</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">46,067</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">CarWash</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">TestSuite.TestSuite</td><td><a href="#m0">regresionTest</a></td><td rowspan="1">1670256160147</td><td rowspan="1">26198</td></tr><tr class="passedeven"><td><a href="#m1">smokeTest</a></td><td rowspan="1">1670256186489</td><td rowspan="1">21917</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">CarWash</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">TestSuite.TestSuite</td><td><a href="#m0">regresionTest</a></td><td rowspan="1">1670326997925</td><td rowspan="1">16840</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">TestSuite.TestSuite</td><td><a href="#m1">smokeTest</a></td><td rowspan="1">1670326969483</td><td rowspan="1">28326</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">TestSuite.TestSuite#regresionTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2541, Last Name=Carter}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">TestSuite.TestSuite#regresionTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2541, Last Name=Carter}</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IndexOutOfBoundsException: Index 15 out of bounds for length 15
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:359)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+	at com.sun.proxy.$Proxy13.get(Unknown Source)
+	at Pages.CarWashPage.displayDetails(CarWashPage.java:195)
+	at TestSuite.TestSuite.regresionTest(TestSuite.java:70)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m1">TestSuite.TestSuite#smokeTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{First Name=John, Name Title=Mr, Company Name=Creations, Mobile Number=9874563210, Landline Number=2541, Last Name=Carter}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

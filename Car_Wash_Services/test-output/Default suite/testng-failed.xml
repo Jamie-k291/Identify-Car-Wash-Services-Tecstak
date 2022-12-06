@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestSuite.BaseTest">
+      <class name="TestSuite.TestSuite">
         <methods>
-          <include name="setUp"/>
-          <include name="functionality1Test3"/>
-          <include name="tearDown"/>
-          <include name="getResult"/>
+          <include name="flushReports"/>
+          <include name="regresionTest"/>
+          <include name="smokeTest" invocation-numbers="0"/>
         </methods>
-      </class> <!-- TestSuite.BaseTest -->
+      </class> <!-- TestSuite.TestSuite -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

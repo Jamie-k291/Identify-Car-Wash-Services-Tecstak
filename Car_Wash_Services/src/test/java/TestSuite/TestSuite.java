@@ -24,12 +24,13 @@ public class TestSuite extends BaseUI {
 	public void smokeTest(Hashtable<String, String> testData) throws Exception {
 
 		logger = report.createTest("Smoke Test");
-
+		configure();
 		invokeBrowser();
 		PageBaseClass pageBaseClass = new PageBaseClass(driver, logger);
 		PageFactory.initElements(driver, pageBaseClass);
 
 		car = pageBaseClass.openURL();
+		car.selectLocation();
 		car.autoCarMenu();
 		car.selectCarWash();
 		car.sortByRating();
@@ -39,6 +40,7 @@ public class TestSuite extends BaseUI {
 		freeList.clickOnFreeList();
 		freeList.doSubmit(testData.get("Company Name"), testData.get("Name Title"), testData.get("First Name"),
 				testData.get("Last Name"), testData.get("Mobile Number"), testData.get("Landline Number"));
+		freeList.verifyBusinessInfoPage();
 
 		gymPage = freeList.gymPage();
 		gymPage.fitness();
@@ -48,7 +50,7 @@ public class TestSuite extends BaseUI {
 
 	}
 
-	@Test(dataProvider = "getTestData", groups = "Regression")
+	@Test(dataProvider = "getTestData", groups = "Regression", dependsOnMethods = "smokeTest")
 	public void regresionTest(Hashtable<String, String> testData) throws Exception {
 
 		logger = report.createTest("Regression Test");
@@ -72,7 +74,7 @@ public class TestSuite extends BaseUI {
 		freeList.verifyTitle();
 		freeList.doSubmit(testData.get("Company Name"), testData.get("Name Title"), testData.get("First Name"),
 				testData.get("Last Name"), testData.get("Mobile Number"), testData.get("Landline Number"));
-		freeList.geterror();
+		freeList.verifyBusinessInfoPage();
 
 		gymPage = freeList.gymPage();
 		gymPage.fitness();

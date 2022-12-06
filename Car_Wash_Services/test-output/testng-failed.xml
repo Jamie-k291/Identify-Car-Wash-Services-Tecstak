@@ -6,7 +6,8 @@
       <class name="TestSuite.TestSuite">
         <methods>
           <include name="flushReports"/>
-          <include name="smokeTest" invocation-numbers="0"/>
+          <include name="regresionTest" invocation-numbers="0"/>
+          <include name="smokeTest"/>
         </methods>
       </class> <!-- TestSuite.TestSuite -->
     </classes>

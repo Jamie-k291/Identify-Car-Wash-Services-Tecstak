@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 import Base.PageBaseClass;
 
@@ -76,7 +77,7 @@ public class GymPage extends PageBaseClass {
 		try {
 			logger = report.createTest("Fitness -Print all the sub-menu available under Gym menu");
 			for (WebElement element : list) {
-				reportInfo(element.getText());
+				logger.log(Status.INFO, element.getText());
 				System.out.println(element.getText());
 			}
 		} catch (Exception e) {

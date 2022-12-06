@@ -3,6 +3,7 @@ package Base;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -34,6 +35,26 @@ public class BaseUI {
 	public static ExtentHtmlReporter extenthtml;
 	public ExtentReports report = ExtentReportManager.getReportInstance();
 	public static ExtentTest logger;
+	public static Boolean flag;
+	Scanner sc = new Scanner(System.in);
+
+	/****************** Configure Location **************************/
+	public void configure() {
+		System.out.println("===============================================");
+		System.out.println("Select a location(Enter 1 or 2)\n1.Mumbai\n2.Detect Location");
+		String location = sc.next();
+		if (location.contains("1")) {
+			flag = true;
+		} else if (location.equals("2")) {
+			flag = false;
+		} else {
+			System.out.println("Failed to configure location");
+			System.exit(0);
+		}
+		System.out.println("===============================================");
+
+		sc.close();
+	}
 
 	/******************** Invoke Browser ********************/
 	public void invokeBrowser() throws Exception {
@@ -81,6 +102,7 @@ public class BaseUI {
 	@AfterTest
 	public void flushReports() {
 		report.flush();
+		flag = null;
 	}
 
 	/******************** Take Screenshot upon report failure ********************/
@@ -154,8 +176,12 @@ public class BaseUI {
 		String title = driver.getTitle();
 		if (title.contains(expected)) {
 			reportInfo("Title matched for the " + expected + " Page");
+			logger.log(Status.PASS, "Page is verified");
+
 		} else {
 			reportInfo("Title not matched for the " + expected + " Page");
+			logger.log(Status.FAIL, "Page is not verified");
+
 		}
 	}
 

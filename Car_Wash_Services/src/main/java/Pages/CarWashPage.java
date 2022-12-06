@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 import Base.PageBaseClass;
 
@@ -27,13 +28,23 @@ public class CarWashPage extends PageBaseClass {
 	WebElement location;
 	@FindBy(xpath = "//a[normalize-space()='Detect my Location']")
 	WebElement detect;
+	@FindBy(xpath = "//*[@id='Mumbai']")
+	WebElement mumbai;
 
 	public void selectLocation() {
 		try {
 			logger = report.createTest("Detect Location");
 			location.click();
-			detect.click();
+
+			if (flag) {
+				mumbai.click();
+
+			} else {
+				detect.click();
+			}
+
 			reportPass("Location detected Successfully");
+			logger.log(Status.PASS, "Location detected Successfully");
 		} catch (Exception e) {
 			e.printStackTrace();
 			reportFail("Detect Location Failed " + e.getMessage());
@@ -50,6 +61,7 @@ public class CarWashPage extends PageBaseClass {
 			logger = report.createTest("Car Wash -Click Auto Car");
 			autoCare.click();
 			reportPass("Auto Car Functionality selected from the left menu of justdial website.");
+			logger.log(Status.PASS, "Successfully Clicked on Auto Car");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,6 +79,7 @@ public class CarWashPage extends PageBaseClass {
 			carWash.click();
 			waitForPageLoad();
 			reportPass("Car Wash Functionality selected from the 'Auto Care' Menu");
+			logger.log(Status.PASS, "Car wash functionality selected");
 
 		} catch (Exception e) {
 
@@ -96,6 +109,8 @@ public class CarWashPage extends PageBaseClass {
 
 			if (verifyElement(value, near.getText())) {
 				reportPass("Shops are displayed for the given location");
+				logger.log(Status.PASS, "Shops displayed");
+
 			} else {
 				reportFail("Shops aren't displayed for the given location");
 			}
@@ -115,7 +130,7 @@ public class CarWashPage extends PageBaseClass {
 		try {
 			logger = report.createTest("Car Wash -Sort by Ratings");
 			rating.click();
-			executor.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
+			// executor.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
 			reportPass("Sorted by rating");
 		} catch (Exception e) {
 			reportFail("Sorting failed " + e.getMessage());
@@ -168,6 +183,7 @@ public class CarWashPage extends PageBaseClass {
 	List<WebElement> shopName;
 
 	@FindBy(xpath = "//span[@class='shownum']")
+	// @FindBy(linkText = "Show Number ")
 	List<WebElement> shownum;
 
 	@FindBy(xpath = "//p[@class='contact-info ']/child::span[contains(text(),'91')]")
@@ -177,6 +193,7 @@ public class CarWashPage extends PageBaseClass {
 
 		for (int i = 0; i < shownum.size(); i++) {
 			executor.executeScript("arguments[0].click();", shownum.get(i));
+			// shownum.get(i).click();
 		}
 		try {
 			int count = 0;
@@ -185,17 +202,18 @@ public class CarWashPage extends PageBaseClass {
 				Float ratings = Float.parseFloat(star.get(i).getText());
 				String number = vote.get(i).getText().split(" ")[0];
 				int votes = Integer.parseInt(number);
-				if (count <= 5) {
+				if (count < 5) {
 					if (ratings >= 4 && votes > 20) {
-						reportInfo(i + 1 + ". " + shopName.get(i).getText() + "||" + ratings + "||"
-								+ vote.get(i).getText());
+						logger.log(Status.INFO,
+								shopName.get(i).getText() + "||" + ratings + "||" + vote.get(i).getText());
+						System.out.println(shopName.get(i).getText() + "||" + ratings + "||" + vote.get(i).getText()
+								+ "||" + phone.get(i).getText());
 						count++;
-						System.out.println(i + 1 + ". " + shopName.get(i).getText() + "||" + ratings + "||"
-								+ vote.get(i).getText() + "||" + phone.get(i).getText());
 					}
 				}
 			}
 			reportPass("Car Wash Service shop name has been displayed successfully");
+			logger.log(Status.PASS, "Car wash service shope name displayed");
 
 		} catch (Exception e) {
 			e.printStackTrace();
